@@ -1,0 +1,23 @@
+.loading {
+    width: 500px;
+    height: 500px;
+    color: white;
+    background-color: rgba(0,0,0,0.5);
+    z-index: -1;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
+}
+
+.loading i.fa {
+    animation-timing-function: ease;
+}
+
+#board {
+    width: 500px;
+    height: 500px;
+    background-color: steelblue;
+}
