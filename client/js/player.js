@@ -7,16 +7,20 @@ var HIDE = false;
 var BOARD_ID = "board";
 
 var socket = io();
+var viewportHeight = 100;
+var viewportWidth = 100;
 
 $(document).ready(function() {
     waitingScreen(SHOW);
 });
 
-socket.on('viewport.update', function(view) {
+socket.on('player.init', function(view) {
     var context = document.getElementById(BOARD_ID).getContext('2d');
-    view.items.forEach(function(item) {
-        item.draw(context);
-    });
+    for (var i = 0; i < viewportHeight; i++) {
+        for (var j = 0; j < viewportWidth; j++) {
+            drawFunction.forType(Math.floor(view[i][j]))(context, j, i);
+        }
+    }
     waitingScreen(HIDE);
 });
 

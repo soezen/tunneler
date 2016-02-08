@@ -13,8 +13,7 @@ function Game() {
         console.log('new player joined game');
         var player = new Player();
         players.push(player);
-        map.placePlayer(player);
-        return map.viewportFor(player);
+        return map.placePlayer(player);
     }
 
     return {
@@ -22,24 +21,10 @@ function Game() {
     }
 }
 
-function Player() {
-    var tank = new Tank();
-    var base = new Base();
-}
-
-function Tank() {
-
-}
-
-function Base() {
-
-    function draw(context) {
-
-    }
-
+function Player(name) {
     return {
-        draw: draw
-    }
+        name: name
+    };
 }
 
 exports.Game = Game;
