@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <script src="js/phaser.min.js"></script>
+</head>
+<body>
+    <script>
+        var game = new Phaser.Game(500, 500, Phaser.AUTO, 'game');
+
+        var Tunneler = {};
+        Tunneler.Game = function(game) {
+
+        };
+        Tunneler.Game.prototype = {
+            create: function() {
+                console.log('create game');
+                this.physics.startSystem(Phaser.Physics.ARCADE);
+                this.stage.backgroundColor = '#B5D9E7';
+                this.load.image('background', 'img/background.png');
+                this.add.sprite(0, 0, 'background');
+            },
+            managePause: function() {
+                console.log('manage pause');
+            },
+            update: function() {
+                console.log('update game');
+            }
+        };
+
+        game.state.add('Game', Tunneler.Game);
+        game.state.start('Game');
+    </script>
+
+    <div id="game"></div>
+</body>
+</html>
