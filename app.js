@@ -8,8 +8,8 @@ var game = new tunneler.Game();
 
 app.use('/tunneler', express.static(__dirname + '/client'));
 
-http.listen(3000, function() {
-  console.log('listening on http://localhost:3000');
+http.listen(process.env.PORT || 3000, function() {
+  console.log('listening on http://localhost:' + (process.env.PORT || 3000) + '/tunneler');
 });
 
 io.on('connection', function(socket) {
